@@ -11,6 +11,40 @@ body {
   background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 100px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #005c69;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-links li {
+  padding: 0 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+
+
 .container {
   width: 90%;
   margin: auto;
@@ -40,7 +74,7 @@ header {
   cursor: pointer;
   border: none;
   outline: none;
-  background: #005c69;
+  background: #2F4842;
   color: #f4f4f4;
   font-size: 16px;
   font-weight: 300;
@@ -94,21 +128,4 @@ ul li::before {
   width: 100%;
   height: auto;
   border-radius: 10px 10px 0 0;
-}
-
-.search-bar {
-  border: 2px solid #ddd;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #333;
-}
-
-.search-btn {
-  background: #6e45e2;
-  border-radius: 20px;
-  padding: 10px 20px;
-  margin-left: 10px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
