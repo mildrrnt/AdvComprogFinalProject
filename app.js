@@ -1,17 +1,19 @@
 const form = document.querySelector('.form')
 const recipes = document.querySelector('.recipes')
 
-const APP_ID = '********'  // Refer Readme.md
-const APP_KEY = '************************' // Refer Readme.md
+const APP_ID = 'b02f6fc3'  // Refer Readme.md
+const APP_KEY = '6b5a3fe3af20c15f1e8e3f25d7f4f8a6' // Refer Readme.md
+
 
 let inputValue = 'chicken'
 
 const fetchData = async (query) => {
   const response = await fetch(
-    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+    `https://api.edamam.com/api/recipes/v2?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&type=public`
   )
 
   const data = await response.json()
+  console.log(data)
   runAPIScripts(data.hits)
 }
 

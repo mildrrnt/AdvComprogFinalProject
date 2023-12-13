@@ -64,3 +64,51 @@ header {
   height: 100px;
   border-radius: 50%;
 }
+
+.recipe {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li::before {
+  content: '• ';
+  color: #6e45e2;
+  font-weight: bold;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.search-bar {
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-btn {
+  background: #6e45e2;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
