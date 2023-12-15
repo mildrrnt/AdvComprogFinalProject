@@ -8,15 +8,17 @@
 
 body {
   font-family: 'Livvic', sans-serif;
-  background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);
+  /*background-image: linear-gradient(-20deg, #6e45e2 0%, #88d3ce 100%);*/
+  background-color: #D6C8C7;
 }
+
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  background-color: #fff;
+  background-color: #2f4842;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   height: 100px;
 }
@@ -24,7 +26,7 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #005c69;
+  color: #D6C8C7;
 }
 
 .nav-links {
@@ -35,24 +37,60 @@ body {
 
 .nav-links li {
   padding: 0 15px;
+  color: #D6C8C7;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #333;
+  color: #D6C8C7;
   transition: color 0.3s ease;
 }
 
 
 
+ul {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: left;
+}
+
+ol {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+}
+
 .container {
-  width: 90%;
+  width: 70%;
   margin: auto;
+  margin-top: 5%;
   text-align: center;
 }
 
 header {
   height: 10vh;
+}
+
+h3 {
+    text-align:  left;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+}
+
+.leftWrapper {
+    width: 30%;
+}
+
+.rightWrapper {
+    width: 70%;
+}
+
+.hori {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 .form {
@@ -69,12 +107,12 @@ header {
 }
 
 .search-btn {
-  width: 150px;
+  width: 50px;
   height: 50px;
   cursor: pointer;
   border: none;
   outline: none;
-  background: #2F4842;
+  background: #2f4842;
   color: #f4f4f4;
   font-size: 16px;
   font-weight: 300;
@@ -82,50 +120,22 @@ header {
 
 .recipes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   grid-gap: 30px;
   margin-top: 32px;
+  margin-bottom: 10%;
 }
 
 .recipe {
   background: #fff;
   border-radius: 30px;
+  padding: 2%;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.recipe {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 20px;
-}
-
-h1 {
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li::before {
-  content: '• ';
-  color: #6e45e2;
-  font-weight: bold;
-}
-
-.img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px 10px 0 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  margin-top: 2%;
 }

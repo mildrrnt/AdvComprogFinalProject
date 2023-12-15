@@ -1,15 +1,14 @@
 const form = document.querySelector('.form')
 const recipes = document.querySelector('.recipes')
 
-const APP_ID = 'b02f6fc3'  // Refer Readme.md
-const APP_KEY = '6b5a3fe3af20c15f1e8e3f25d7f4f8a6' // Refer Readme.md
-
+const APP_ID = 'f10a0ce8'  // Refer Readme.md
+const APP_KEY = '5fe2da1c593bbeccac9e38182eacf4cc' // Refer Readme.md
 
 let inputValue = 'chicken'
 
 const fetchData = async (query) => {
   const response = await fetch(
-    `https://api.edamam.com/api/recipes/v2?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&type=public`
+    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
   )
 
   const data = await response.json()
@@ -27,29 +26,61 @@ const runAPIScripts = (data) => {
 const generateDOM = (recipe) => {
   const wrapper = document.createElement('div')
 
+  const horizontal = document.createElement('div')
+  horizontal.setAttribute('class','hori')
+  const wrapper1 = document.createElement('div')
+  wrapper1.setAttribute('class','leftWrapper')
+  const wrapper2 = document.createElement('div')
+  wrapper2.setAttribute('class','rightWrapper')
+
   const title = document.createElement('h1')
   title.textContent = recipe.label
 
   const calories = document.createElement('p')
   calories.textContent = `${Math.floor(recipe.calories)} calories`
 
+  const servings = document.createElement('p')
+  servings.textContent = `${recipe.yield} servings`
+
+  const ingredientLabel = document.createElement('h3')
+  ingredientLabel.textContent = 'Ingredients'
+
   const listContainer = document.createElement('ul')
 
   recipe.ingredientLines.forEach((ingredient) => {
-    const listItem = document.createElement('ol')
+    const listItem = document.createElement('li')
     listItem.textContent = ingredient
     listContainer.appendChild(listItem)
+  })
+
+  const instLabel = document.createElement('h3')
+  instLabel.textContent = 'Instruction'
+
+  const instContainer = document.createElement('ol')
+
+  recipe.instructionLines.forEach((instruction) => {
+    const inst = document.createElement('li')
+    inst.textContent = instruction
+    instContainer.appendChild(inst)
   })
 
   const image = document.createElement('img')
   image.setAttribute('src', recipe.image)
   image.classList.add('img')
 
-  wrapper.appendChild(title)
-  wrapper.appendChild(calories)
-  wrapper.appendChild(listContainer)
-  wrapper.appendChild(image)
-
+  wrapper1.appendChild(title)
+  wrapper1.appendChild(calories)
+  wrapper1.appendChild(servings)
+  wrapper1.appendChild(image)
+  horizontal.appendChild(wrapper1)
+  wrapper2.appendChild(ingredientLabel)
+  wrapper2.appendChild(listContainer)
+  horizontal.appendChild(wrapper2)
+  wrapper.appendChild(horizontal)
+  if (instContainer.textContent != "") {
+    wrapper.appendChild(instLabel)
+    wrapper.appendChild(instContainer)
+  }
   wrapper.classList.add('recipe')
 
   recipes.appendChild(wrapper)
