@@ -12,6 +12,12 @@ body {
   background-color: #D6C8C7;
 }
 
+select {
+  width: auto;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 2%;
+}
 
 .navbar {
   display: flex;
@@ -33,6 +39,7 @@ body {
   list-style: none;
   display: flex;
   margin-left: auto;
+  margin-right: 0;
 }
 
 .nav-links li {
@@ -136,6 +143,13 @@ h3 {
 .img {
   width: 200px;
   height: 200px;
+  border-radius: 10%;
+  margin-top: 2%;
+}
+
+.img2 {
+  width: 200px;
+  height: auto;
   border-radius: 10%;
   margin-top: 2%;
 }
