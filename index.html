@@ -9,11 +9,10 @@
   </head>
   <body>
     <nav class="navbar">
-      <div class="logo">Saharat Chuay Duay</div>
+      <div class="logo">Saharat Cookbook</div>
       <ul class="nav-links">
-        <li>Easy Recipe Finder</li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
       </ul>
     </nav>
     <div class="container">
@@ -30,7 +29,15 @@
           <button class="search-btn">⌕</button>
         </form>
       </header>
-
+      <label for=""data_no> Number of Recipes: </label>
+      <select name="data_no" id="data_no">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select>
+      <div class="status"></div>
       <div class="recipes"></div>
     </div>
   </body>

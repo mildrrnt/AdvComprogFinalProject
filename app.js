@@ -1,30 +1,36 @@
 // Declare variables for each class
 const form = document.querySelector('.form')
 const recipes = document.querySelector('.recipes')
-const container = document.querySelector('.container')
+const container = document.querySelector('.status')
 
 // APP_ID and APP_KEY to connect with EdamamAPI
 const APP_ID = 'f10a0ce8'
 const APP_KEY = '5fe2da1c593bbeccac9e38182eacf4cc'
+let to = 10
 
 let inputValue = 'chicken' // Initial Input Value
 
 const fetchData = async (query) => {
+  to = data_no.value
   const response = await fetch(
-    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+    `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=${to}`
   )
 
   const data = await response.json()
   console.log(data)
+  container.innerHTML = '' // Clear previous result
+  const status = document.createElement('p');
   if (data.count == 0) {
     recipes.innerHTML = '' // Clear previous result
     // Create new element and append it to the container
-    const notFound = document.createElement('p');
-    notFound.textContent = `No Recipe for "${inputValue}" Found In Database`
-    container.appendChild(notFound)
+    status.textContent = `No recipe for "${inputValue}" found in database.`
   } else{
+    // Set max value shown to only first 50 data -> if the data count is less than 50, max value = data count
+    let max_value = (data.count <= 50) ? data.count:50; 
+    status.textContent = `Show ${data.hits.length}/${max_value} recipes for "${inputValue}".`
     runAPIScripts(data.hits)
   }
+  container.appendChild(status)
 }
 
 const runAPIScripts = (data) => {
