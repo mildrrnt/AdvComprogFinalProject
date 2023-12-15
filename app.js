@@ -1,5 +1,6 @@
 const form = document.querySelector('.form')
 const recipes = document.querySelector('.recipes')
+const container = document.querySelector('.container')
 
 const APP_ID = 'f10a0ce8'  // Refer Readme.md
 const APP_KEY = '5fe2da1c593bbeccac9e38182eacf4cc' // Refer Readme.md
@@ -13,7 +14,14 @@ const fetchData = async (query) => {
 
   const data = await response.json()
   console.log(data)
-  runAPIScripts(data.hits)
+  if (data.count == 0) {
+    recipes.innerHTML = ''
+    const notFound = document.createElement('p');
+    notFound.textContent = `No Recipe for "${inputValue}" Found In Database`
+    container.appendChild(notFound)
+  } else{
+    runAPIScripts(data.hits)
+  }
 }
 
 const runAPIScripts = (data) => {
